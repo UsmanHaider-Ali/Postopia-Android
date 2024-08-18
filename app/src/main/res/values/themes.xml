@@ -1,0 +1,39 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Postopia" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/light_primary</item>
+    </style>
+
+    <style name="Theme.Postopia" parent="Base.Theme.Postopia" />
+
+    <!-- Custom button style -->
+    <style name="CustomButtonStyle">
+        <!-- Button background color -->
+        <item name="android:background">@drawable/custom_button_background</item>
+        <!-- Text color -->
+        <item name="android:textColor">@color/white</item>
+        <!-- Padding and text size -->
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <!-- Button size -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Custom EditText style -->
+    <style name="CustomEditTextStyle">
+        <!-- EditText background -->
+        <item name="android:background">@drawable/custom_edittext_background</item>
+        <!-- Text color -->
+        <item name="android:textColor">@color/black</item>
+        <!-- Hint text color -->
+        <item name="android:textColorHint">@color/light_gray</item>
+        <!-- Padding and text size -->
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <!-- EditText size -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>

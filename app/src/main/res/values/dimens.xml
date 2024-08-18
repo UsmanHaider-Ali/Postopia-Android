@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button dimensions -->
+    <dimen name="button_height">@dimen/_45sdp</dimen>
+
+    <!-- EditText dimensions -->
+    <dimen name="edittext_height">@dimen/_45sdp</dimen>
+
+    <!-- Padding and margin -->
+    <dimen name="screen_horizontal_padding">@dimen/_16sdp</dimen>
+
+    <dimen name="vertical_margin_between_views">@dimen/_16sdp</dimen>
+    <dimen name="vertical_margin_between_views_group">@dimen/_32sdp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+
+    <!-- Corner radius -->
+    <dimen name="corner_radius">@dimen/_8sdp</dimen>
+
+    <!-- Stroke width -->
+    <dimen name="stroke_width">0.5dp</dimen>
+
+</resources>
