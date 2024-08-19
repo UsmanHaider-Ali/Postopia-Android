@@ -1,30 +1,33 @@
-package com.example.postopia.presentation.auth
+package com.example.postopia.presentation.posts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.postopia.data.response.user.UserModel
-import com.example.postopia.domain.AuthUseCases
+import com.example.postopia.data.response.post.Post
+import com.example.postopia.data.response.post.PostsListModel
+import com.example.postopia.domain.PostsUseCases
 import com.example.postopia.utils.ApiStatus
 import kotlinx.coroutines.launch
 
-class AuthViewModel(private val authUseCases: AuthUseCases) : ViewModel() {
+class PostsViewModel(private val postsUseCases: PostsUseCases) : ViewModel() {
+    private val _allPostsResult = MutableLiveData<Result<PostsListModel>>()
+    val allPostsResult: LiveData<Result<PostsListModel>> get() = _allPostsResult
 
-    private val _userResult = MutableLiveData<Result<UserModel>>()
-    val userResult: LiveData<Result<UserModel>> get() = _userResult
+    private val _newPostResult = MutableLiveData<Result<Post>>()
+    val newPostResult: LiveData<Result<Post>> get() = _newPostResult
 
     private val _apiStatus = MutableLiveData<ApiStatus>()
     val apiStatus: LiveData<ApiStatus> get() = _apiStatus
 
-    fun register(name: String, email: String, password: String) {
+    fun getAllPosts() {
         viewModelScope.launch {
             try {
                 _apiStatus.postValue(ApiStatus.LOADING)
 
-                val result = authUseCases.register(name, email, password)
+                val result = postsUseCases.getAllPosts()
 
-                _userResult.postValue(result)
+                _allPostsResult.postValue(result)
 
                 if (result.isSuccess)
                     _apiStatus.postValue(ApiStatus.SUCCESS)
@@ -37,14 +40,14 @@ class AuthViewModel(private val authUseCases: AuthUseCases) : ViewModel() {
         }
     }
 
-    fun login(email: String, password: String) {
+    fun createNewPost(user: String, description: String, image: String) {
         viewModelScope.launch {
             try {
                 _apiStatus.postValue(ApiStatus.LOADING)
 
-                val result = authUseCases.login(email, password)
+                val result = postsUseCases.createNewPos(user, description, image)
 
-                _userResult.postValue(result)
+                _newPostResult.postValue(result)
 
                 if (result.isSuccess)
                     _apiStatus.postValue(ApiStatus.SUCCESS)
@@ -56,5 +59,4 @@ class AuthViewModel(private val authUseCases: AuthUseCases) : ViewModel() {
             }
         }
     }
-
 }

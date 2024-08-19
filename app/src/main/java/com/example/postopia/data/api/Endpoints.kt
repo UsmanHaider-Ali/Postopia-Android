@@ -9,5 +9,10 @@ class Endpoints {
         const val REGISTER = "$API$USER/register"
         const val LOGIN = "$API$USER/login"
 
+        private const val POSTS = "posts"
+        const val CREATE_NEW_POST = "$API$POSTS/createNewPost"
+        const val GET_ALL_POSTS = "$API$POSTS/getAllPosts"
+
+
     }
 }

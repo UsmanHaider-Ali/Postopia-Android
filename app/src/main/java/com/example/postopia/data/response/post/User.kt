@@ -1,4 +1,4 @@
-package com.example.postopia.data.response.user
+package com.example.postopia.data.response.post
 
 data class User(
     val __v: Int,
@@ -6,6 +6,5 @@ data class User(
     val createdAt: String,
     val email: String,
     val name: String,
-    val password: String,
     val updatedAt: String
 )
