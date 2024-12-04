@@ -56,7 +56,7 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
-      # Step 7: Upload Release APK as an artifact (Updated to v4)
+      # Step 7: Upload Release APK as an artifact
       - name: Upload Release APK
         uses: actions/upload-artifact@v4
         with:
@@ -66,14 +66,15 @@ jobs:
       # Step 8: Upload APK to Firebase App Distribution
       - name: Upload to Firebase App Distribution
         run: |
-          echo "${{ secrets.FIREBASE_AUTH_JSON }}" > firebase-auth.json
+          echo "${{ secrets.FIREBASE_AUTH_JSON }}" | jq -r > firebase-auth.json
           npm install -g firebase-tools
+          firebase login:ci --no-localhost > token.txt
+          FIREBASE_TOKEN=$(cat token.txt | tail -n 1)
           firebase appdistribution:distribute app/build/outputs/apk/release/app-release.apk \
             --app ${{ secrets.FIREBASE_APP_ID }} \
-            --token "$(cat firebase-auth.json | jq -r .client_id)"
+            --token $FIREBASE_TOKEN
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/firebase-auth.json
-
 
       # Step 9: Cleanup sensitive files
       - name: Cleanup sensitive files
