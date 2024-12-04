@@ -1,4 +1,4 @@
-package com.example.postopia.presentation.auth
+package com.acmespectrum.postopia.presentation.auth
 
 import android.content.Context
 import android.content.Intent
@@ -10,14 +10,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
-import com.example.postopia.data.api.AuthService
-import com.example.postopia.data.api.RetrofitInstance
-import com.example.postopia.data.local.SharedPreferencesManager
-import com.example.postopia.data.repository.AuthRepository
-import com.example.postopia.databinding.ActivityLoginBinding
-import com.example.postopia.domain.AuthUseCases
-import com.example.postopia.presentation.main.MainActivity
-import com.example.postopia.utils.ApiStatus
+import com.acmespectrum.postopia.data.api.AuthService
+import com.acmespectrum.postopia.data.api.RetrofitInstance
+import com.acmespectrum.postopia.data.local.SharedPreferencesManager
+import com.acmespectrum.postopia.data.repository.AuthRepository
+import com.acmespectrum.postopia.databinding.ActivityLoginBinding
+import com.acmespectrum.postopia.domain.AuthUseCases
+import com.acmespectrum.postopia.presentation.main.MainActivity
+import com.acmespectrum.postopia.utils.ApiStatus
 import java.util.Locale
 
 class LoginActivity : AppCompatActivity() {

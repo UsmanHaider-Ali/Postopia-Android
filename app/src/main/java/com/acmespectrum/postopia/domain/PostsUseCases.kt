@@ -1,8 +1,8 @@
-package com.example.postopia.domain
+package com.acmespectrum.postopia.domain
 
-import com.example.postopia.data.repository.PostsRepository
-import com.example.postopia.data.response.post.Post
-import com.example.postopia.data.response.post.PostsListModel
+import com.acmespectrum.postopia.data.repository.PostsRepository
+import com.acmespectrum.postopia.data.response.post.Post
+import com.acmespectrum.postopia.data.response.post.PostsListModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

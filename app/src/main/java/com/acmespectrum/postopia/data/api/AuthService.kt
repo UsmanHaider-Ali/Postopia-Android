@@ -1,8 +1,8 @@
-package com.example.postopia.data.api
+package com.acmespectrum.postopia.data.api
 
-import com.example.postopia.data.api.Endpoints.Companion.LOGIN
-import com.example.postopia.data.api.Endpoints.Companion.REGISTER
-import com.example.postopia.data.response.user.UserModel
+import com.acmespectrum.postopia.data.api.Endpoints.Companion.LOGIN
+import com.acmespectrum.postopia.data.api.Endpoints.Companion.REGISTER
+import com.acmespectrum.postopia.data.response.user.UserModel
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

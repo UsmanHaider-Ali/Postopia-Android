@@ -1,9 +1,9 @@
-package com.example.postopia.data.api
+package com.acmespectrum.postopia.data.api
 
-import com.example.postopia.data.api.Endpoints.Companion.CREATE_NEW_POST
-import com.example.postopia.data.api.Endpoints.Companion.GET_ALL_POSTS
-import com.example.postopia.data.response.post.Post
-import com.example.postopia.data.response.post.PostsListModel
+import com.acmespectrum.postopia.data.api.Endpoints.Companion.CREATE_NEW_POST
+import com.acmespectrum.postopia.data.api.Endpoints.Companion.GET_ALL_POSTS
+import com.acmespectrum.postopia.data.response.post.Post
+import com.acmespectrum.postopia.data.response.post.PostsListModel
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

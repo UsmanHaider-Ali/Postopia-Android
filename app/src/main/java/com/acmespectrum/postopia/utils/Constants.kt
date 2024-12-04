@@ -1,4 +1,4 @@
-package com.example.postopia.utils
+package com.acmespectrum.postopia.utils
 
 import org.json.JSONObject
 import retrofit2.Response

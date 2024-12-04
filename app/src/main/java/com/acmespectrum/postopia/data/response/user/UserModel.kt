@@ -1,4 +1,4 @@
-package com.example.postopia.data.response.user
+package com.acmespectrum.postopia.data.response.user
 
 data class UserModel(
     val message: String,

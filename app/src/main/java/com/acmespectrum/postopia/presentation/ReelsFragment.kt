@@ -1,11 +1,11 @@
-package com.example.postopia.presentation
+package com.acmespectrum.postopia.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.postopia.R
+import com.acmespectrum.postopia.R
 
 class ReelsFragment : Fragment() {
 

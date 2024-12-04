@@ -1,4 +1,4 @@
-package com.example.postopia.data.local
+package com.acmespectrum.postopia.data.local
 
 import android.content.Context
 import android.content.SharedPreferences

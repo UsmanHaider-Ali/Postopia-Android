@@ -1,12 +1,12 @@
-package com.example.postopia.presentation.main
+package com.acmespectrum.postopia.presentation.main
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.postopia.R
-import com.example.postopia.databinding.ActivityMainBinding
+import com.acmespectrum.postopia.R
+import com.acmespectrum.postopia.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

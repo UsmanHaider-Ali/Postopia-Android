@@ -1,7 +1,7 @@
-package com.example.postopia.domain
+package com.acmespectrum.postopia.domain
 
-import com.example.postopia.data.repository.AuthRepository
-import com.example.postopia.data.response.user.UserModel
+import com.acmespectrum.postopia.data.repository.AuthRepository
+import com.acmespectrum.postopia.data.response.user.UserModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

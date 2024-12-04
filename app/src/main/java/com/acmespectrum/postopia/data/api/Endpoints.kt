@@ -1,4 +1,4 @@
-package com.example.postopia.data.api
+package com.acmespectrum.postopia.data.api
 
 class Endpoints {
     companion object {

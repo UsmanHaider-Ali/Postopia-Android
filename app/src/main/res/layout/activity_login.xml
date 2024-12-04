@@ -13,18 +13,18 @@
         android:id="@+id/et_email"
         style="@style/CustomEditTextStyle"
         android:layout_width="match_parent"
-        android:inputType="textEmailAddress"
         android:layout_height="@dimen/edittext_height"
-        android:hint="Enter email address" />
+        android:hint="@string/enter_email_address"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/et_password"
         style="@style/CustomEditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/edittext_height"
-        android:inputType="textPassword"
         android:layout_marginTop="@dimen/vertical_margin_between_views"
-        android:hint="Enter password" />
+        android:hint="@string/enter_password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btn_login"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
         android:layout_marginTop="@dimen/vertical_margin_between_views_group"
-        android:text="Login" />
+        android:text="@string/login" />
 
     <ProgressBar
         android:id="@+id/pb_loading"
@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account?"
+            android:text="@string/don_t_have_an_account"
             android:textSize="@dimen/_12ssp" />
 
         <TextView
@@ -58,10 +58,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
-            android:text="Register Now"
+            android:text="@string/register_now"
             android:textColor="@color/light_primary"
             android:textSize="@dimen/_12ssp"
             android:textStyle="bold" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/button_switch_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_between_views_group"
+        android:text="@string/switch_theme" />
+
+    <Button
+        android:id="@+id/button_switch_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_between_views_group"
+        android:text="@string/switch_langage" />
 </LinearLayout>

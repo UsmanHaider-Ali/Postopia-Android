@@ -1,15 +1,97 @@
-*.iml
-.gradle
+# Gradle files
+.gradle/
+build/
+.gradle/
+gradle-app.setting
+
+# Local configuration files
 /local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+.env
+.env.*
+/.idea/
+/*.iml
+*.properties
+
+# Keystore files (important to keep secure!)
+*.jks
+*.keystore
+Key-Store
+Key-Store.b64
+
+# Compiled code
+*.class
+*.dex
+/out/
+*.apk
+*.ap_
+*.aab
+
+# Generated files
+/build/
+captures/
+navigation.json
+*.json
+
+# Gradle Wrapper
+/gradlew
+/gradlew.bat
+/gradle/
+
+# Temporary files
+*.temp
+*.tmp
+*.orig
+*.backup
+*.bak
+
+# IDE files
+/.idea/
+/.idea/*
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+Thumbs.db
+
+# Files for debugging
+*.log
+
+# Test outputs
+/test-results/
+
+# Crashlytics files
+/fabric.properties
+/crashlytics.properties
+
+# Proguard files
+proguard/
+
+# Android specific
+generated/
 local.properties
+app/release/
+/local_settings.gradle
+
+# Personal files (common configurations and sensitive data)
+*.key
+*.pem
+*.crt
+*.p12
+*.der
+*.asc
+
+# Ignore backup files or temporary secrets
+*.bak
+*.bkp
+*.backup
+*.secret
+*.enc
+
+# Authentication and sensitive data
+auth.*
+config.*
+
+# Ignore the Keys folder and its contents
+Keys/
+Keys/*

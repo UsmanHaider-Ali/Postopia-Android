@@ -1,9 +1,9 @@
-package com.example.postopia.data.repository
+package com.acmespectrum.postopia.data.repository
 
-import com.example.postopia.data.api.PostsService
-import com.example.postopia.data.response.post.Post
-import com.example.postopia.data.response.post.PostsListModel
-import com.example.postopia.utils.Constants.Companion.parseError
+import com.acmespectrum.postopia.data.api.PostsService
+import com.acmespectrum.postopia.data.response.post.Post
+import com.acmespectrum.postopia.data.response.post.PostsListModel
+import com.acmespectrum.postopia.utils.Constants.Companion.parseError
 
 class PostsRepository(private val postsService: PostsService) {
 

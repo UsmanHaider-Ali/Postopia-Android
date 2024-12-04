@@ -1,10 +1,8 @@
-package com.example.postopia.data.repository
+package com.acmespectrum.postopia.data.repository
 
-import com.example.postopia.data.api.AuthService
-import com.example.postopia.data.response.user.UserModel
-import com.example.postopia.utils.Constants.Companion.parseError
-import org.json.JSONObject
-import retrofit2.Response
+import com.acmespectrum.postopia.data.api.AuthService
+import com.acmespectrum.postopia.data.response.user.UserModel
+import com.acmespectrum.postopia.utils.Constants.Companion.parseError
 
 class AuthRepository(private val authService: AuthService) {
 

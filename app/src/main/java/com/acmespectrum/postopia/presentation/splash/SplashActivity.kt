@@ -1,14 +1,13 @@
-package com.example.postopia.presentation.splash
+package com.acmespectrum.postopia.presentation.splash
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.postopia.presentation.main.MainActivity
-import com.example.postopia.R
-import com.example.postopia.data.local.SharedPreferencesManager
-import com.example.postopia.presentation.auth.LoginActivity
+import com.acmespectrum.postopia.R
+import com.acmespectrum.postopia.data.local.SharedPreferencesManager
+import com.acmespectrum.postopia.presentation.auth.LoginActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

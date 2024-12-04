@@ -1,13 +1,13 @@
-package com.example.postopia.presentation.posts
+package com.acmespectrum.postopia.presentation.posts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.postopia.data.response.post.Post
-import com.example.postopia.data.response.post.PostsListModel
-import com.example.postopia.domain.PostsUseCases
-import com.example.postopia.utils.ApiStatus
+import com.acmespectrum.postopia.data.response.post.Post
+import com.acmespectrum.postopia.data.response.post.PostsListModel
+import com.acmespectrum.postopia.domain.PostsUseCases
+import com.acmespectrum.postopia.utils.ApiStatus
 import kotlinx.coroutines.launch
 
 class PostsViewModel(private val postsUseCases: PostsUseCases) : ViewModel() {

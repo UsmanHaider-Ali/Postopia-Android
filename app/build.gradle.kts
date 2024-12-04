@@ -4,14 +4,16 @@ plugins {
 
     id("com.google.devtools.ksp")
     id("androidx.navigation.safeargs.kotlin")
+    alias(libs.plugins.google.firebase.appdistribution)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
-    namespace = "com.example.postopia"
+    namespace = "com.acmespectrum.postopia"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.postopia"
+        applicationId = "com.acmespectrum.postopia"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -20,15 +22,29 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            // Use environment variables set in the CI/CD pipeline
+            storeFile = file(System.getenv("KEYSTORE_FILE_PATH") ?: "/keys/Key-Store")
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
+        }
+        debug {
+            isDebuggable = true
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

@@ -1,4 +1,4 @@
-package com.example.postopia.adapters
+package com.acmespectrum.postopia.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.postopia.data.response.post.Post
-import com.example.postopia.databinding.PostTileBinding
+import com.acmespectrum.postopia.data.response.post.Post
+import com.acmespectrum.postopia.databinding.PostTileBinding
 
 class PostsAdapter : RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
     inner class PostsViewHolder(val binding: PostTileBinding) :

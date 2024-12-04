@@ -1,4 +1,4 @@
-package com.example.postopia
+package com.acmespectrum.postopia
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.postopia.data.response.post
+package com.acmespectrum.postopia.data.response.post
 
 data class Post(
     val __v: Int,

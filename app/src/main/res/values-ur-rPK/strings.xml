@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Postopia</string>
+    <string name="switch_theme">تھیم سوئچ کریں۔</string>
+    <string name="switch_langage">زبان سوئچ کریں۔</string>
+    <string name="register_now">ابھی رجسٹر کریں۔</string>
+    <string name="don_t_have_an_account">کیا آپ کا اکاؤنٹ نہیں ہے؟</string>
+    <string name="login">لاگ ان</string>
+    <string name="enter_password">پاس ورڈ درج کریں۔</string>
+    <string name="enter_email_address">ای میل ایڈریس درج کریں۔</string>
 </resources>

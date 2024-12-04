@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/navigation_chat"
-        android:name="com.example.postopia.presentation.ChatsFragment"
+        android:name="com.acmespectrum.postopia.presentation.ChatsFragment"
         android:label="fragment_chats"
         tools:layout="@layout/fragment_chats" />
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.postopia.presentation.HomeFragment"
+        android:name="com.acmespectrum.postopia.presentation.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.postopia.presentation.ProfileFragment"
+        android:name="com.acmespectrum.postopia.presentation.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/navigation_create_post"
-        android:name="com.example.postopia.presentation.NewPostFragment"
+        android:name="com.acmespectrum.postopia.presentation.NewPostFragment"
         android:label="fragment_new_post"
         tools:layout="@layout/fragment_new_post" />
     <fragment
         android:id="@+id/navigation_reels"
-        android:name="com.example.postopia.presentation.ReelsFragment"
+        android:name="com.acmespectrum.postopia.presentation.ReelsFragment"
         android:label="fragment_reels"
         tools:layout="@layout/fragment_reels" />
 </navigation>

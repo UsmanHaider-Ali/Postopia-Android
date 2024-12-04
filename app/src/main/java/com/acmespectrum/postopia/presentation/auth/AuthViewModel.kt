@@ -1,12 +1,12 @@
-package com.example.postopia.presentation.auth
+package com.acmespectrum.postopia.presentation.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.postopia.data.response.user.UserModel
-import com.example.postopia.domain.AuthUseCases
-import com.example.postopia.utils.ApiStatus
+import com.acmespectrum.postopia.data.response.user.UserModel
+import com.acmespectrum.postopia.domain.AuthUseCases
+import com.acmespectrum.postopia.utils.ApiStatus
 import kotlinx.coroutines.launch
 
 class AuthViewModel(private val authUseCases: AuthUseCases) : ViewModel() {

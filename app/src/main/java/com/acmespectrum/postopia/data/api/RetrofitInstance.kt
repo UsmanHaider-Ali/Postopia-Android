@@ -1,8 +1,8 @@
-package com.example.postopia.data.api
+package com.acmespectrum.postopia.data.api
 
-import com.example.postopia.utils.Constants.Companion.CONNECTION_TIME_OUT
-import com.example.postopia.utils.Constants.Companion.READ_TIME_OUT
-import com.example.postopia.utils.Constants.Companion.WRITE_TIME_OUT
+import com.acmespectrum.postopia.utils.Constants.Companion.CONNECTION_TIME_OUT
+import com.acmespectrum.postopia.utils.Constants.Companion.READ_TIME_OUT
+import com.acmespectrum.postopia.utils.Constants.Companion.WRITE_TIME_OUT
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

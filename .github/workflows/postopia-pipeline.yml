@@ -1,4 +1,4 @@
-name: Quigam CI/CD Pipeline
+name: Postopia CI/CD Pipeline
 
 on:
   push:
@@ -40,19 +40,8 @@ jobs:
         run: |
           mkdir -p ./keys
           echo "${{ secrets.KEYSTORE_FILE_BASE64 }}" | base64 --decode > ./keys/Key-Store
-          ls -l ./keys/Key-Store
 
-#      # Step 5: Bump version code and version name
-#      - name: Bump version code and version name
-#        run: |
-#          VERSION_CODE=$(date +%Y%m%d%H%M%S) # Use current timestamp for version code
-#          VERSION_NAME="1.0.$VERSION_CODE"   # Format version name as 1.0.X
-#
-#          # Update version code and version name in build.gradle
-#          sed -i "s/versionCode [0-9]\+/versionCode $VERSION_CODE/" app/build.gradle
-#          sed -i "s/versionName \"[^\"]*\"/versionName \"$VERSION_NAME\"/" app/build.gradle
-
-      # Step 6: Build the Release APK
+      # Step 5: Build the Release APK
       - name: Build Release APK
         run: ./gradlew assembleRelease
         env:
@@ -61,25 +50,27 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
-      # Step 7: Upload Release APK as an artifact (Updated to v4)
+      # Step 6: Upload Release APK as an artifact (Updated to v4)
       - name: Upload Release APK
         uses: actions/upload-artifact@v4  # Updated to v4
         with:
           name: release-apk
           path: app/build/outputs/apk/release/*.apk
 
-      # Step 8: Cleanup keystore file for added security
-      - name: Cleanup keystore
-        run: rm -rf ./keys
+      # Step 7: Upload APK to Firebase App Distribution
+      - name: Upload to Firebase App Distribution
+        run: |
+          echo "${{ secrets.FIREBASE_AUTH_JSON }}" > firebase-auth.json
+          npm install -g firebase-tools
+          firebase appdistribution:distribute app/build/outputs/apk/release/app-release.apk \
+            --app ${{ secrets.FIREBASE_APP_ID }} \
+            --token "$(firebase login:ci --json --token=$(cat firebase-auth.json))"
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/firebase-auth.json
 
-  # Download Artifact Job (if needed for post-build actions)
-  download-artifact:
-    runs-on: ubuntu-24.04  # Update to ubuntu-24.04
-    needs: build
+      # Step 8: Cleanup keystore and Firebase credentials
+      - name: Cleanup sensitive files
+        run: |
+          rm -rf ./keys
+          rm -f firebase-auth.json
 
-    steps:
-      - name: Download Release APK (Updated to v4)
-        uses: actions/download-artifact@v4  # Updated to v4
-        with:
-          name: release-apk
-          path: ./downloaded-apk
