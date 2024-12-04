@@ -1,19 +1,24 @@
 package com.example.postopia.presentation.auth
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.postopia.presentation.main.MainActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import com.example.postopia.data.api.AuthService
 import com.example.postopia.data.api.RetrofitInstance
 import com.example.postopia.data.local.SharedPreferencesManager
 import com.example.postopia.data.repository.AuthRepository
 import com.example.postopia.databinding.ActivityLoginBinding
 import com.example.postopia.domain.AuthUseCases
+import com.example.postopia.presentation.main.MainActivity
 import com.example.postopia.utils.ApiStatus
+import java.util.Locale
 
 class LoginActivity : AppCompatActivity() {
 
@@ -97,6 +102,43 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding.buttonSwitchTheme.setOnClickListener {
+            toggleTheme()
+        }
+
+        binding.buttonSwitchLanguage.setOnClickListener {
+            switchLanguage(context = this)
+        }
+    }
+
+    private fun toggleTheme() {
+        AppCompatDelegate.setDefaultNightMode(
+            if (AppCompatDelegate.getDefaultNightMode() == MODE_NIGHT_YES) AppCompatDelegate.MODE_NIGHT_NO else MODE_NIGHT_YES
+        )
+    }
+
+    private fun switchLanguage(context: Context) {
+        var currentLanguage = getCurrentLanguage(context = context)
+        currentLanguage = if (currentLanguage == "ur") {
+            "er"
+        } else {
+            "ur"
+        }
+        val locale = Locale(currentLanguage)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+
+        // Restart activity to apply changes
+        recreate()
+    }
+
+    fun getCurrentLanguage(context: Context): String {
+        val config: Configuration = context.resources.configuration
+        val locale: Locale = config.locales.get(0)
+        return locale.language
     }
 
     private fun showLoading() {

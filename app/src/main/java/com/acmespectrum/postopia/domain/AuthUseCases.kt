@@ -16,5 +16,4 @@ class AuthUseCases(private val authRepository: AuthRepository) {
         withContext(Dispatchers.IO) {
             authRepository.login(email, password)
         }
-
 }

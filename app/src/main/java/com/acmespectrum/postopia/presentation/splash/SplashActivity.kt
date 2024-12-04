@@ -27,8 +27,9 @@ class SplashActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             delay(2500)
-            var intent = Intent(this@SplashActivity, MainActivity::class.java)
-            if (user == null) intent = Intent(this@SplashActivity, LoginActivity::class.java)
+//            var intent = Intent(this@SplashActivity, MainActivity::class.java)
+//            if (user == null)
+                intent = Intent(this@SplashActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
             finishAffinity()
