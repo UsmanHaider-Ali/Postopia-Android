@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04  # Update to ubuntu-24.04
+    runs-on: ubuntu-24.04
 
     steps:
       # Step 1: Checkout the code
@@ -35,13 +35,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle
 
-      # Step 4: Decode and save the keystore file securely
+      # Step 4: Decode and place google-services.json
+      - name: Decode google-services.json
+        run: |
+          mkdir -p ./app/src/release
+          echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > ./app/src/release/google-services.json
+
+      # Step 5: Decode and save the keystore file securely
       - name: Decode and save keystore
         run: |
           mkdir -p ./keys
           echo "${{ secrets.KEYSTORE_FILE_BASE64 }}" | base64 --decode > ./keys/Key-Store
 
-      # Step 5: Build the Release APK
+      # Step 6: Build the Release APK
       - name: Build Release APK
         run: ./gradlew assembleRelease
         env:
@@ -50,14 +56,14 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
-      # Step 6: Upload Release APK as an artifact (Updated to v4)
+      # Step 7: Upload Release APK as an artifact (Updated to v4)
       - name: Upload Release APK
-        uses: actions/upload-artifact@v4  # Updated to v4
+        uses: actions/upload-artifact@v4
         with:
           name: release-apk
           path: app/build/outputs/apk/release/*.apk
 
-      # Step 7: Upload APK to Firebase App Distribution
+      # Step 8: Upload APK to Firebase App Distribution
       - name: Upload to Firebase App Distribution
         run: |
           echo "${{ secrets.FIREBASE_AUTH_JSON }}" > firebase-auth.json
@@ -68,9 +74,9 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/firebase-auth.json
 
-      # Step 8: Cleanup keystore and Firebase credentials
+      # Step 9: Cleanup sensitive files
       - name: Cleanup sensitive files
         run: |
           rm -rf ./keys
           rm -f firebase-auth.json
-
+          rm -f ./app/src/release/google-services.json
