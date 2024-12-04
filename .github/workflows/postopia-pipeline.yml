@@ -70,9 +70,10 @@ jobs:
           npm install -g firebase-tools
           firebase appdistribution:distribute app/build/outputs/apk/release/app-release.apk \
             --app ${{ secrets.FIREBASE_APP_ID }} \
-            --token "$(firebase login:ci --json --token=$(cat firebase-auth.json))"
+            --token "$(cat firebase-auth.json | jq -r .client_id)"
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/firebase-auth.json
+
 
       # Step 9: Cleanup sensitive files
       - name: Cleanup sensitive files
